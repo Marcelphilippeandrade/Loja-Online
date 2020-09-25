@@ -3,6 +3,8 @@ package br.com.lojaonline.beans;
 import java.util.ArrayList;
 import java.util.List;
 import javax.enterprise.context.RequestScoped;
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
 import javax.transaction.Transactional;
@@ -20,22 +22,27 @@ public class AdminLivrosBean {
 	private List<Integer> autoresId = new ArrayList<>();
 
 	@Inject
+	private FacesContext context;
+
+	@Inject
 	private LivroDao dao;
 
 	@Inject
 	private AutorDao autorDao;
 
 	@Transactional
-	public void salvar() {
+	public String salvar() {
 
 		for (Integer autorId : autoresId) {
 			livro.getAutores().add(new Autor(autorId));
 		}
 
 		dao.salvar(livro);
-		System.out.println("Livro Cadastrado: " + livro);
-		this.livro = new Livro();
-		this.autoresId = new ArrayList<Integer>();
+
+		context.getExternalContext().getFlash().setKeepMessages(true);
+		context.addMessage(null, new FacesMessage("Livro cadastrado com sucesso!"));
+
+		return "/livros/lista?faces-redirect=true";
 	}
 
 	public List<Autor> getAutores() {
