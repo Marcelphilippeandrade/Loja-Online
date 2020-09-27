@@ -1,7 +1,7 @@
 package br.com.lojaonline.beans;
 
-import java.util.ArrayList;
 import java.util.List;
+
 import javax.enterprise.context.RequestScoped;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
@@ -19,8 +19,6 @@ public class AdminLivrosBean {
 
 	private Livro livro = new Livro();
 
-	private List<Integer> autoresId = new ArrayList<>();
-
 	@Inject
 	private FacesContext context;
 
@@ -32,11 +30,6 @@ public class AdminLivrosBean {
 
 	@Transactional
 	public String salvar() {
-
-		for (Integer autorId : autoresId) {
-			livro.getAutores().add(new Autor(autorId));
-		}
-
 		dao.salvar(livro);
 
 		context.getExternalContext().getFlash().setKeepMessages(true);
@@ -55,13 +48,5 @@ public class AdminLivrosBean {
 
 	public void setLivro(Livro livro) {
 		this.livro = livro;
-	}
-
-	public List<Integer> getAutoresId() {
-		return autoresId;
-	}
-
-	public void setAutoresId(List<Integer> autoresId) {
-		this.autoresId = autoresId;
 	}
 }
