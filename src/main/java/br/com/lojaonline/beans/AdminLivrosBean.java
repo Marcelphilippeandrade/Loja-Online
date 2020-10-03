@@ -7,9 +7,12 @@ import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
+import javax.servlet.http.Part;
 import javax.transaction.Transactional;
+
 import br.com.lojaonline.daos.AutorDao;
 import br.com.lojaonline.daos.LivroDao;
+import br.com.lojaonline.infra.FileSaver;
 import br.com.lojaonline.models.Autor;
 import br.com.lojaonline.models.Livro;
 
@@ -28,9 +31,14 @@ public class AdminLivrosBean {
 	@Inject
 	private AutorDao autorDao;
 
+	private Part capaLivro;
+
 	@Transactional
-	public String salvar() {
+	public String salvar(){
 		dao.salvar(livro);
+
+		FileSaver fileSaver = new FileSaver();
+		livro.setCapaPath(fileSaver.write(capaLivro, "livros"));
 
 		context.getExternalContext().getFlash().setKeepMessages(true);
 		context.addMessage(null, new FacesMessage("Livro cadastrado com sucesso!"));
@@ -48,5 +56,13 @@ public class AdminLivrosBean {
 
 	public void setLivro(Livro livro) {
 		this.livro = livro;
+	}
+
+	public Part getCapaLivro() {
+		return capaLivro;
+	}
+
+	public void setCapaLivro(Part capaLivro) {
+		this.capaLivro = capaLivro;
 	}
 }
