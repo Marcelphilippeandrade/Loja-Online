@@ -42,6 +42,8 @@ public class Livro {
 
 	@Temporal(TemporalType.DATE)
 	private Calendar dataPublicacao;
+	
+	private String capaPath;
 
 	@ManyToMany
 	@Size(min = 1)
@@ -108,5 +110,13 @@ public class Livro {
 	public String toString() {
 		return "Livro [id=" + id + ", titulo=" + titulo + ", descricao=" + descricao + ", preco=" + preco
 				+ ", numeroPaginas=" + numeroPaginas + ", autores=" + autores + "]";
+	}
+
+	public String getCapaPath() {
+		return capaPath;
+	}
+
+	public void setCapaPath(String capaPath) {
+		this.capaPath = capaPath;
 	}
 }
