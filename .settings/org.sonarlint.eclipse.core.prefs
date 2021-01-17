@@ -1,0 +1,3 @@
+autoEnabled=true
+eclipse.preferences.version=1
+fileExclusions=FILE\:src/main/webapp/index.xhtml\r\nFILE\:src/main/webapp/livro-detalhe.xhtml
