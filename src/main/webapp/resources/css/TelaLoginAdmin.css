@@ -1,0 +1,68 @@
+.divLogoPrincipal{
+	position: absolute; 
+	left: 160px; 
+	top: 80px;
+}
+
+.divCampoLogin{
+	position: absolute; 
+	left: 915px; 
+	top: 160px;
+}
+
+.campoLogin{
+	width: 250px;
+	font-family: Poppins-Medium;
+	font-size: 15px;
+	height: 40px;
+	border-radius: 25px;
+	padding: 0 30px 0 68px;
+}
+
+.divSenha{
+	position: absolute; 
+	left: 915px; 
+	top: 205px;
+}
+
+.campoSenha{
+	width: 150px;
+	font-family: Poppins-Medium;
+	font-size: 15px;
+	height: 40px;
+	border-radius: 25px;
+	padding: 0 30px 0 68px;
+	
+}
+
+.divBotaoLogin{
+	position: absolute; 
+	left: 960px; 
+	top: 250px;
+	width: 50%;
+    height: 40%;
+}
+
+.botaoLogin{
+	font-family: Montserrat-Bold;
+    font-size: 15px;
+    line-height: 1.5;
+    color: #fff;
+    text-transform: uppercase;
+    width: 40%;
+    height: 40px;
+    background: #f8965d;
+    border-radius: 25px;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 25px;
+    -webkit-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    transition: all 0.4s;
+}
