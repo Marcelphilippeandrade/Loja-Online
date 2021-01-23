@@ -25,7 +25,7 @@ Construir uma loja vitual de livros voltados para a grande e maravilhosa área d
 # Pre-requisitos:
 
 1. Criar uma pasta no diretório local do computador com o nome lojaonline e dentro dela criar uma outra pasta de nome Livros. Ex: C:\lojaonline\Livros. É nessa pasta que ficará todas as imagens das capas dos
-livors.
+livros.
 
 2. Baixar e descompactar o servidor de aplicação WildFly versão 16. Com o servidor baixado e descompactado vá para a pasta: wildfly-16.0.0.Final\standalone\configuration, substitua o conteudo do arquivo standalone-full.xml pelo conteudo do arquivo, standalone-full.txt, que se encontra na raiz do projeto.
 
