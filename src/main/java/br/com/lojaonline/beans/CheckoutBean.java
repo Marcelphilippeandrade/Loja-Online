@@ -8,6 +8,7 @@ import javax.transaction.Transactional;
 import br.com.lojaonline.models.CarrinhoCompras;
 import br.com.lojaonline.models.Compra;
 import br.com.lojaonline.models.Usuario;
+import br.com.lojaonline.utils.criptografiaUtil;
 
 @Model
 public class CheckoutBean {
@@ -23,6 +24,7 @@ public class CheckoutBean {
 	@Transactional
 	public void finalizar() {
 		Compra compra = new Compra();
+		usuario.setSenha(criptografiaUtil.criptografaSenha(usuario.getSenha()));
 		compra.setUsuario(usuario);
 		carrinho.finalizar(compra);
 
